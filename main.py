@@ -14,6 +14,7 @@ from PyQt5 import QtGui, QtCore, QtWidgets
 from lab01 import Lab01
 from lab00 import Lab00
 from lab02 import Lab02
+from lab02t import Lab02T
 from lab01ours import Lab01Ours
 
 
@@ -77,6 +78,7 @@ class MZODWindow(QtWidgets.QMainWindow):
         self.tabs = QtWidgets.QTabWidget(self)
         self.add_tab(Lab00(self.camera, self.tabs))
         self.add_tab(Lab01(self.camera, self.tabs))
+        self.add_tab(Lab02T(self.camera, self.tabs))
         self.add_tab(Lab02(self.camera, self.tabs))
         self.add_tab(Lab01Ours(self.camera, self.tabs))
         self.grid_layout.addWidget(self.tabs, 1, 0, 1, 2)

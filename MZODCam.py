@@ -83,9 +83,7 @@ class MZODCam:
         #                                        pylon.RegistrationMode_ReplaceAll, pylon.Cleanup_Delete)
 
         # converter
-        self.converter = pylon.ImageFormatConverter()
-        self.converter.OutputPixelFormat = pylon.PixelType_Mono8
-        self.converter.OutputBitAlignment = pylon.OutputBitAlignment_MsbAligned
+        self.converter = self._create_converter()
 
         # open camera, start grabbing
         self.PylonCamera.Open()
@@ -111,8 +109,18 @@ class MZODCam:
         if self.PylonCamera is not None:
             self.PylonCamera.StopGrabbing()
 
+    @staticmethod
+    def _create_converter():
+        converter = pylon.ImageFormatConverter()
+        converter.OutputPixelFormat = pylon.PixelType_Mono8
+        converter.OutputBitAlignment = pylon.OutputBitAlignment_MsbAligned
+        return converter
+
     # converts grab result using converter, returns numpy array
+    # works without connected camera too (e.g. for images loaded from file)
     def convert(self, grab_result):
+        if self.converter is None:
+            self.converter = self._create_converter()
         return self.converter.Convert(grab_result).GetArray()
 
     # trigger camera and return grab result / None

@@ -1,0 +1,15 @@
+# build outputs
+build/
+*.so
+
+# python
+__pycache__/
+*.py[cod]
+
+# virtual environment
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/

@@ -1,6 +1,6 @@
 PyQt5
 numpy
-opencv-python
+opencv-python-headless
 pypylon
 cython
 setuptools
