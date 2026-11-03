@@ -18,6 +18,7 @@ from lab02t import Lab02T
 from lab01ours import Lab01Ours
 from lab03 import Lab03
 from lab03w import Lab03w
+from lab04 import Lab04
 
 
 class MZODWindow(QtWidgets.QMainWindow):
@@ -84,6 +85,7 @@ class MZODWindow(QtWidgets.QMainWindow):
         self.add_tab(Lab02(self.camera, self.tabs))
         self.add_tab(Lab03(self.camera, self.tabs))
         self.add_tab(Lab03w(self.camera, self.tabs))
+        self.add_tab(Lab04(self.camera, self.tabs))
         self.add_tab(Lab01Ours(self.camera, self.tabs))
         self.grid_layout.addWidget(self.tabs, 1, 0, 1, 2)
         self.setCentralWidget(self.central_widget)
