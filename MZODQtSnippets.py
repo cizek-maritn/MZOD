@@ -216,6 +216,10 @@ class MZODLabelDoubleSpinBox(MZODLabelWidget):
     def _format(self, value):
         return f'{value:.{self.spinbox.decimals()}f}'
 
+class MZODPushButton(QtWidgets.QPushButton):
+    def __init__(self, text='', parent=None):
+        super().__init__(text, parent)
+
 
 # label | spinbox | slider, both hold the same value
 # the control is the spinbox, so value(), setValue() and valueChanged come from it
